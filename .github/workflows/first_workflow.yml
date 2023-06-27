@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: pipeline001
 
 # Controls when the workflow will run
 on:
@@ -31,6 +31,14 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
-        run: |
+        run: 
           echo Add other actions to build,
           echo test, and deploy your project.
+  # This workflow contains a single job called "build"
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: path/to/artifact/world.txt
