@@ -1,0 +1,24 @@
+name: pipeline002
+on: 
+  workflow_run:
+    workflows: ["pipeline_01"]
+    types: [requested]
+    branches:
+      - '0627'
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+  upload:
+    runs-on: ubuntu-latest
+    needs: check-bats-version
+    steps:
+      - uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: path/to/artifact/world.txt        
