@@ -2,15 +2,11 @@
 
 name: pipeline_01
 
-# Controls when the workflow will run,test 01
+# Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch push
   push:
     branches: [ "0627" ]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
